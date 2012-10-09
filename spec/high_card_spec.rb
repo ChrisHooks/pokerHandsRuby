@@ -16,6 +16,9 @@ describe HighCard do
   end
 
   describe '#match?' do
-    it 'should always return true'
+    it 'should always return true' do
+      hand = double 'hand'
+      HighCard.match?(hand).should == true
+    end
   end
 end
