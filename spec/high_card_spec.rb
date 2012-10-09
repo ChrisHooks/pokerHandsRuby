@@ -1,11 +1,20 @@
 
-require './high_card'
+require './high_card.rb'
 
 describe HighCard do
-  describe '#to_s(hand)' do
-    it 'should pick the highest card and say (high card) High Hand'
-     #HighCard.to_s(hand).should == 'High Card High Hand'
-  end
+  describe '#describe(hand)' do
+      it 'should pick the highest card and say (high card) High Hand' do
+        lowCard = double 'lowCard'
+        highCard = double 'highCard'
+
+        lowCard.stub :> => false
+        highCard.stub :> => true
+        highCard.should_receive(:to_s).and_return('High Card')
+
+        hand = double 'hand', :cards => [lowCard, highCard]
+        HighCard.describe(hand).should == 'High Card High Hand'
+      end
+    end
 
   describe '#compare' do
     context 'compare equal hands' do
