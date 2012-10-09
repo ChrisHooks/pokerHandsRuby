@@ -1,4 +1,8 @@
 require './card.rb'
+require './high_card.rb'
+class Pair; end
+class TwoPair; end
+class ThreeOfAKind; end
 
 class Hand
   HAND_TYPES = [HighCard, Pair, TwoPair, ThreeOfAKind]
